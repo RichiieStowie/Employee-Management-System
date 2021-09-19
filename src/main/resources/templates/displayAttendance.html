@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+</head>
+<body>
+<a class="nav-link" th:href="@{/viewList}"><h2>Admin Home</h2></a>
+<div style="display: flex; flex-direction: row-reverse; justify-content: space-evenly;margin-top: 15px">
+    <table class="table table-striped" >
+        <thead>
+        <tr>
+            <th scope="col">Date</th>
+            <th scope="col">Status</th>
+
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="list :${attendanceList}">
+            <td th:text="${list.localDate}"></td>
+            <td th:text="${list.attendanceStatus}"></td>
+            <!--        <td><a th:href="@{/acceptLeaveRequest/{id}(id=${leave.value.leaveId})}" class="btn btn-success">Accept</a></td>-->
+            <!--        <td><a th:href="@{/RejectLeaveRequest/{id}(id=${leave.value.leaveId})}" class="btn btn-danger">Reject</a></td>-->
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>

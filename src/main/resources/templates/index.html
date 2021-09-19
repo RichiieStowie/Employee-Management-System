@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org" xmlns:form="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Employee Mangement</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+</head>
+<body>
+<div style="width: 60%;height: 60vh;margin: 15%">
+    <form  th:action="@{/login}" th:object="${employeeLogin}" method="post">
+        <div class="mb-3">
+            <label path="email" >Email</label>
+            <input th:type="email" th:field="*{email}" placeholder="Email Address" class="form-control" id="exampleInputEmail1"/><br>
+        </div>
+        <div class="mb-3">
+            <label path="password">Paasword</label>
+            <input th:type="password" th:field="*{password}" placeholder="password" class="form-control" id="exampleInputPassword"/>
+        </div>
+        <input class="btn btn-primary" type="submit" value="Login" />
+    </form>
+</div>
+
+
+
+</body>
+</html>

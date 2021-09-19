@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<a class="nav-link" th:href="@{/viewList}"><h2>Admin Home</h2></a>
+<div style="text-align: center">
+    <form th:action="@{/postAttendanceList}" th:object="${attendanceDisplayRequest}" method="post">
+        <label for="start-Date">
+            <input type="date" th:field="*{startDate}"id="start-Date"/>
+        </label>
+        <input type="hidden" name="id" th:value="${attendanceDisplayRequest.getEmployeeId()}">
+        <label for="end-Date">
+            <input type="date" th:field="*{endDate}" id="end-Date"/>
+        </label>
+        <input class="btn btn-primary" type="submit"/>
+    </form>
+</div>
+
+</body>
+</html>

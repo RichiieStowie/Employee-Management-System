@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form th:action="@{/leavePost}" th:object="${leaveApplication}" method="post">
+   <input  name="requestBody" placeholder="Reason"/>
+    <input type="date" name="leaveStartDate" placeholder="Start date"/>
+    <input type="date"  name="leaveEndDate" placeholder="End date">
+    <input type="submit" value="Save & submit">
+</form>
+</body>
+</html>

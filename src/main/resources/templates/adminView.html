@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin home page</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+</head>
+<body>
+<!--<form th:action="@{/viewList}" method="post">-->
+<!--<input type="submit" value="View employee list"/>-->
+<!--</form>-->
+<div style="display: flex;flex-direction: row;justify-content: space-between; margin-bottom: 15px">
+    <div style="display: flex;flex-direction: row;">
+        <a class="nav-link" th:href="@{/newEmployee}">Add new employee</a>
+        <a class="nav-link active" aria-current="page" th:href="@{/listOfApplicantsForleave}">Leave Application</a>
+
+        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+    </div>
+    <div>
+        <a th:href="@{/logOut}" class="btn btn-lg btn-secondary">Log out</a>
+    </div>
+
+</div>
+
+
+    <div>
+        <table class="table table-striped" >
+            <thead>
+            <tr>
+                <th scope="col">First Name</th>
+                <th scope="col">Last name</th>
+                <th scope="col">Email Address</th>
+                <th scope="col">Role</th>
+                <th scope="col">Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="employee :${listOfEmployees}">
+                <td th:text="${employee.getFirstName()}"></td>
+                <td th:text="${employee.getLastName()}"></td>
+                <td th:text="${employee.getEmail()}"></td>
+                <td th:text="${employee.getRole()}"></td>
+                <td><a th:href="@{/formUpdate/{id}(id=${employee.id})}" class="btn btn-primary">Update</a></td>
+                <td><a th:href="@{/deleteEmployee/{id}(id=${employee.id})}" class="btn btn-warning">Delete</a></td>
+                <td><a  th:href="@{'/viewAttendanceList/{id}'(id=${employee.id})}" class="btn btn-success">Attendance Sheet</a></td>
+                <td><a class="nav-link" th:href="@{/paySalary/{id}(id=${employee.id})}">Pay Salary</a></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!--side bar-->
+    <div>
+        <nav class="nav flex-column">
+
+
+        </nav>
+    </div>
+
+
+
+</body>
+</html>

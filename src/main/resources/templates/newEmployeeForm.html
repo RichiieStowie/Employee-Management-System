@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+   <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+</head>
+<body>
+<form action="#" th:action="@{/newEmployee}" th:object="${employee}" method="post">
+    <div class="mb-3">
+        <label for="firstName" class="form-label">First Name</label>
+        <input th:type="text" th:field="*{firstName}"  class="form-control" id="firstName" placeholder="first Name" required>
+    </div>
+    <div class="mb-3">
+        <label for="lastName" class="form-label">last name</label>
+        <input th:type="text" th:field="*{lastName}" class="form-control" id="lastName" placeholder="last name" required>
+    </div>
+    <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input th:type="email" th:field="*{email}" class="form-control" id="email" placeholder="Email Address" required>
+    </div>
+    <div class="mb-3">
+        <label for="password" class="form-label">Password</label>
+        <input th:type="password" th:field="*{password}" class="form-control" id="password" placeholder="Input password" required>
+    </div>
+    <div class="mb-3">
+        <label for="role" class="form-label">Employee Role</label>
+        <input th:type="text" th:field="*{role}" class="form-control" id="role" placeholder="Employee Role" required>
+    </div>
+    <div class="mb-3">
+        <label for="salary" class="form-label">Salary Per Month</label>
+        <input th:type="text" th:field="*{salary}" class="form-control" id="salary" placeholder="Monthly Salary" required>
+    </div>
+    <div class="mb-3">
+        <input type="submit" class="form-control btn btn-success" id="submit" value="Save new employee" required>
+    </div>
+</form>
+</body>
+</html>
